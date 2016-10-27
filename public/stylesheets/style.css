@@ -1,0 +1,69 @@
+body {
+  font: 14px 'Open Sans', sans-serif; }
+
+nav {
+  background-color: #fff; }
+  nav .navbar-collapse {
+    background-color: #fff; }
+  nav .nav-brand-img {
+    width: 130px;
+    height: 56px; }
+
+header {
+  width: 100%; }
+  header .report-jumbo-head {
+    color: #fff;
+    text-shadow: 1px 1px #000;
+    background-image: url("/images/chai-bg.jpg");
+    height: 28em; }
+    header .report-jumbo-head h1 {
+      margin: 5%; }
+      @media (max-width: 772px) {
+        header .report-jumbo-head h1 {
+          margin-top: 10%; } }
+    header .report-jumbo-head p {
+      padding-top: 5%; }
+
+section {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+.avg-use-summary-sect h1 {
+  font-size: 4em;
+  margin-bottom: .5em;
+  background-color: #4ebaa7;
+  color: #fff;
+  text-shadow: 1px 1px #000; }
+
+.avg-use-summary-sect p {
+  font-size: 2em; }
+
+.avg-use-summary-sect .summary-span {
+  background-color: #4ebaa7;
+  color: #fff; }
+
+.best-worst-sect {
+  background-color: #f0f2f4; }
+  .best-worst-sect h2 {
+    font-size: 3em;
+    background-color: #4ebaa7;
+    color: #fff;
+    text-shadow: 1px 1px #000; }
+  .best-worst-sect td {
+    font-size: 1.2em; }
+
+.breakdown-sect h1 {
+  font-size: 4em;
+  background-color: #4ebaa7;
+  color: #fff;
+  text-shadow: 1px 1px #000; }
+
+span {
+  cursor: pointer; }
+
+.watt-dollar-span {
+  background-color: #e58447;
+  color: #fff;
+  font-size: 1.5em; }
+
+/*# sourceMappingURL=style.css.map */

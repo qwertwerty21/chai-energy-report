@@ -1,0 +1,85 @@
+extends layout
+
+block content
+	div.container
+		nav.navbar.navbar-default.navbar-fixed-top
+			div.navbar-header.navbar-left
+				button.navbar-toggle(type="button" data-toggle="collapse" data-target="#myNavBar") Menu
+				a(href="#")
+					img.nav-brand-img(src="/images/chai-logo.jpg", alt="Chai Energy Logo")
+			div#myNavBar.collapse.navbar-collapse
+				ul.nav.navbar-nav.navbar-right
+					li
+						a(href="#") Pro
+					li
+						a(href="#") Download
+					li
+						a(href="#") Support
+					li
+						a(href="#") Blog
+					li
+						a(href="#") Contact
+	header
+		div.jumbotron.text-center.report-jumbo-head
+			div.container
+				h1 My #{jsondata.relevant_timespan.month_long} Chai Energy Usage Report
+				p #[span.convertToDate #{jsondata.relevant_timespan.starttime}] ~ #[span.convertToDate #{jsondata.relevant_timespan.endtime}]
+		section.avg-use-summary-sect
+			div.container
+				h1 Overall
+				p #[span.summary-span In total,] you used #[span#monthTotal.watt-dollar-span #{jsondata.monthly_usage} watts] worth of power this month.
+				p #[span.summary-span On average,] that's #[span#avgDay.watt-dollar-span #{jsondata.average_day} watts] a day.
+				p #[span.summary-span On weekdays,] you averaged #[span#avgWkDay.watt-dollar-span #{jsondata.weekday_average} watts].
+				p #[span.summary-span On weekends,] you averaged #[span#avgWkEnd.watt-dollar-span #{jsondata.weekend_average} watts] a day.
+		section.best-worst-sect
+			div.container
+				div.row
+					div.col-sm-6
+						h2 You did good here:
+						hr
+						div.table-responsive
+						table.table.table-hover
+							thead
+								tr
+									th Date
+									th Energy Used
+							tbody
+								tr.success
+									td #[span#bestDay1Date.convertToDate #{jsondata.best_three.data[0][0]}]
+									td #[span#bestDay1Energy.watt-dollar-span #{jsondata.best_three.data[0][1]} watts] used.
+								tr.success
+									td #[span#bestDay2Date.convertToDate #{jsondata.best_three.data[1][0]}]
+									td #[span#bestDay2Energy.watt-dollar-span #{jsondata.best_three.data[1][1]} watts] used.
+								tr.success
+									td #[span#bestDay3Date.convertToDate #{jsondata.best_three.data[2][0]}]
+									td #[span#bestDay3Energy.watt-dollar-span #{jsondata.best_three.data[2][1]} watts] used.
+						h4.text-center You spent #[span#best3Total.watt-dollar-span #{jsondata.best_three.total} watts] on these three days, accounting for #[span#best3Percent.convertToPercent #{jsondata.best_three.percentage}]% of this month's energy usage. 
+					div.col-sm-6
+						h2 You could improve here:
+						hr
+						div.table-responsive
+						table.table.table-hover
+							thead
+								tr
+									th Date
+									th Energy Used
+							tbody
+								tr.danger
+									td #[span#worstDay1Date.convertToDate #{jsondata.worst_three.data[0][0]}]
+									td #[span#worstDay1Energy.watt-dollar-span #{jsondata.worst_three.data[0][1]} watts] used.
+								tr.danger
+									td #[span#bestDay2Date.convertToDate #{jsondata.worst_three.data[1][0]}]
+									td #[span#worstDay2Energy.watt-dollar-span #{jsondata.worst_three.data[1][1]} watts] used.
+								tr.danger
+									td #[span#worstDay3Date.convertToDate #{jsondata.worst_three.data[2][0]}]
+									td #[span#worstDay3Energy.watt-dollar-span #{jsondata.worst_three.data[2][1]} watts] used.
+						h4.text-center You spent #[span#worst3Total.watt-dollar-span #{jsondata.worst_three.total} watts] on these three days, accounting for #[span#worst3Percent.convertToPercent #{jsondata.worst_three.percentage}]% of this month's energy usage.
+		section.breakdown-sect
+			div.container
+				h1 Breakdown
+				div#graph
+	script(src='https://code.jquery.com/jquery-3.1.1.min.js')
+	script(src='/javascripts/main.js')
+	script(src="https://cdn.plot.ly/plotly-latest.min.js")
+	script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
