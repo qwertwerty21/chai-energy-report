@@ -64,17 +64,6 @@ $(document).ready(function(){
 				}
 				);
 			}
-			//desktops// set to toggle between dollars and watts on hover
-			function hoverToggleWattsDollars( jqueryObj, watts ){
-				jqueryObj.on({
-					mouseenter: function(){
-						$(this).text(convertWattsToDollars(watts));
-					},
-					mouseleave: function(){
-						$(this).text(watts + ' watts');
-					}
-				});
-			}
 
 			function convertEpochToDateStr(  ){
 				var epoch = Number($(this).text());
@@ -103,43 +92,31 @@ $(document).ready(function(){
 			Plotly.plot( graph, graphData, graphLayout);
 			//OVERALL Section Event Listeners
 			clickToggleWattsDollars( $('#monthTotal'), json.monthly_usage);
-			hoverToggleWattsDollars( $('#monthTotal'), json.monthly_usage);
 
 			clickToggleWattsDollars( $('#avgDay'), json.average_day);
-			hoverToggleWattsDollars( $('#avgDay'), json.average_day);
 
 			clickToggleWattsDollars( $('#avgWkDay'), json.weekday_average);
-			hoverToggleWattsDollars( $('#avgWkDay'), json.weekday_average);
 
 			clickToggleWattsDollars( $('#avgWkEnd'), json.weekend_average);
-			hoverToggleWattsDollars( $('#avgWkEnd'), json.weekend_average);
 
 			//BEST 3 DAYS Section Event Listeners
 			clickToggleWattsDollars( $('#bestDay1Energy'), json.best_three.data[0][1]);
-			hoverToggleWattsDollars( $('#bestDay1Energy'), json.best_three.data[0][1]);
 
 			clickToggleWattsDollars( $('#bestDay2Energy'), json.best_three.data[1][1]);
-			hoverToggleWattsDollars( $('#bestDay2Energy'), json.best_three.data[1][1]);
 
 			clickToggleWattsDollars( $('#bestDay3Energy'), json.best_three.data[2][1]);
-			hoverToggleWattsDollars( $('#bestDay3Energy'), json.best_three.data[2][1]);
 
 			clickToggleWattsDollars( $('#best3Total'), json.best_three.total);
-			hoverToggleWattsDollars( $('#best3Total'), json.best_three.total);
 
 
 			//WORST 3 DAYS Section Event Listeners
 			clickToggleWattsDollars( $('#worstDay1Energy'), json.worst_three.data[0][1]);
-			hoverToggleWattsDollars( $('#worstDay1Energy'), json.worst_three.data[0][1]);
 
 			clickToggleWattsDollars( $('#worstDay2Energy'), json.worst_three.data[1][1]);
-			hoverToggleWattsDollars( $('#worstDay2Energy'), json.worst_three.data[1][1]);
 
 			clickToggleWattsDollars( $('#worstDay3Energy'), json.worst_three.data[2][1]);
-			hoverToggleWattsDollars( $('#worstDay3Energy'), json.worst_three.data[2][1]);
 
 			clickToggleWattsDollars( $('#worst3Total'), json.worst_three.total);
-			hoverToggleWattsDollars( $('#worst3Total'), json.worst_three.total);
 			
 
 		});
